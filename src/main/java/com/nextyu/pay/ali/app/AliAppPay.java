@@ -1,7 +1,7 @@
 package com.nextyu.pay.ali.app;
 
 import com.nextyu.pay.ali.dto.AliAppPayDTO;
-import com.nextyu.pay.ali.util.OrderInfoUtil;
+import com.nextyu.pay.ali.util.AppPayOrderInfoUtil;
 
 import java.util.Map;
 
@@ -21,9 +21,9 @@ public class AliAppPay {
      * @return
      */
     public static String buildPayInfo(AliAppPayDTO aliAppPayDTO) {
-        Map<String, String> params = OrderInfoUtil.buildOrderParamMap(aliAppPayDTO);
-        String orderParam = OrderInfoUtil.buildOrderParam(params);
-        String sign = OrderInfoUtil.getSign(params, aliAppPayDTO.getAppPrivateKey());
+        Map<String, String> params = AppPayOrderInfoUtil.buildOrderParamMap(aliAppPayDTO);
+        String orderParam = AppPayOrderInfoUtil.buildOrderParam(params);
+        String sign = AppPayOrderInfoUtil.getSign(params, aliAppPayDTO.getAppPrivateKey());
         return orderParam + "&" + sign;
     }
 

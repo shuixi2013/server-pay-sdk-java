@@ -3,6 +3,8 @@ package com.nextyu.pay.ali.util;
 import com.alibaba.fastjson.JSON;
 import com.nextyu.pay.ali.dto.AliAppPayDTO;
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -13,8 +15,11 @@ import java.util.*;
  *
  * @author nextyu
  */
-public class OrderInfoUtil {
-    private OrderInfoUtil() {
+public class AppPayOrderInfoUtil {
+
+    private static Logger logger = LoggerFactory.getLogger(AppPayOrderInfoUtil.class);
+
+    private AppPayOrderInfoUtil() {
     }
 
     public static Map<String, String> buildOrderParamMap(AliAppPayDTO aliAppPayDTO) {
@@ -30,7 +35,7 @@ public class OrderInfoUtil {
         try {
             encoded_passback_params = URLEncoder.encode(aliAppPayDTO.getPassBackParams(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error("encode passBackParams error", e);
         }
         bizContentMap.put("passback_params", encoded_passback_params);
 
@@ -131,7 +136,7 @@ public class OrderInfoUtil {
         try {
             encodedSign = URLEncoder.encode(oriSign, "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error("encode sign error", e);
         }
         return "sign=" + encodedSign;
     }

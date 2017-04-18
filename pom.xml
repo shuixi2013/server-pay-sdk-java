@@ -4,11 +4,34 @@
 
     <groupId>com.nextyu.pay</groupId>
     <artifactId>server-pay-sdk-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
 
     <name>server-pay-sdk-java</name>
-    <url>http://maven.apache.org</url>
+    <description>wxpay and alipay server sdk</description>
+    <url>https://github.com/nextyu/server-pay-sdk-java</url>
+    <inceptionYear>2017</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>nextyu</id>
+            <name>nextyu</name>
+            <email>younext@163.com</email>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>nextyu</name>
+        <url>https://github.com/nextyu</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

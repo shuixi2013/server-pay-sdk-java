@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 支付宝电脑网站支付(扫码支付)
  * created on 2017-04-06 13:44
  *
  * @author nextyu

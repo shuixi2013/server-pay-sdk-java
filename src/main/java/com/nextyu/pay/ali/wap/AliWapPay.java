@@ -6,6 +6,8 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
 import com.nextyu.pay.ali.dto.AliWapPayDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -18,6 +20,9 @@ import java.util.Map;
  * @author nextyu
  */
 public class AliWapPay {
+
+    private static Logger logger = LoggerFactory.getLogger(AliWapPay.class);
+
     private AliWapPay() {
     }
 
@@ -47,7 +52,7 @@ public class AliWapPay {
         try {
             encoded_passback_params = URLEncoder.encode(aliWapPayDTO.getPassBackParams(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error("encode passBackParams error", e);
         }
         sParaTemp.put("passback_params", encoded_passback_params);
 
@@ -59,7 +64,7 @@ public class AliWapPay {
         try {
             form = alipayClient.pageExecute(alipayRequest).getBody();
         } catch (AlipayApiException e) {
-            e.printStackTrace();
+            logger.error("alipayClient pageExecute error", e);
         }
         return form;
     }
