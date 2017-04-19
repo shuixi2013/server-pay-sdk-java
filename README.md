@@ -46,3 +46,15 @@
     ```
     WxAppPay.buildPayInfo(WxAppPayDTO wxAppPayDTO);
     ```
+    
+## 注意
+pom.xml里面依赖的alipay为支付宝提供的jar包,[下载地址在这里](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.qNbhVF&treeId=54&articleId=106370&docType=1)里面的JAVA版资源
+，需要自己安装到私服或者本地仓库
+```
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>alipay</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+```
